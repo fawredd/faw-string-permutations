@@ -12,18 +12,18 @@ let permute = function (startStr) {
   let level = 0; // Stores the tree level
   
   const backtrack = (str, path) => {
-    if (str.length === 0) {
-      result.push(path);
-      return;
-    }
     //console.log(`${level}) ${str}`);
     if (typeof levels[level] === 'undefined') {
       levels[level] = []
     }else{
       levels[level] = [...levels[level]];
     }
-    levels[level].push(str);
-    // console.log(`level:${level} ${JSON.stringify(levels[level])}`)
+
+    if (str.length === 0) {
+      result.push(path.join(''));
+      levels[level].push(path.join(''));
+      return;
+    }
     level++
     for (let i = 0; i < str.length; i++) {
       let newArray = str.substring(0, i).concat(str.substring(i + 1));
@@ -31,17 +31,20 @@ let permute = function (startStr) {
       backtrack(newArray, newPath);
     }
     level--
+    levels[level].push(path.join(''));
     return;
   };
 
   backtrack(startStr, []);
-  levels[0] = [...result.map(e=>e.join(''))]
-  let filteredLevels = levels.map((e)=>{
+  //levels[0] = [...result.map(e=>e.join(''))]
+  levels.shift()
+  let filteredLevels = levels.map((e,i)=>{
       let filtered = Array.from(new Set(e))
       return filtered
     }
   ).flat()
-  //console.log("Unfiltered:",JSON.stringify(levels))
+  console.log("Unfiltered:",JSON.stringify(levels))
+  console.log("Filtered:",JSON.stringify(filteredLevels))
   return filteredLevels.length;
 };
 console.log(permute("ccb"));
