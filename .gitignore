@@ -1,0 +1,37 @@
+# Directorios de dependencias
+node_modules/
+
+# Archivos de datos generados
+build/
+coverage/
+test-results/
+
+# Archivos de configuración local
+.env
+.env.development
+.env.production
+
+# Archivos de caché
+.cache/
+npm-cache/
+.eslintcache/
+.stylelintcache/
+
+# Archivos de historial
+.node_repl_history
+.vscode-test/
+
+# Archivos de registro
+*.log
+*.err
+
+# Archivos de compilación
+*.bundle.js
+*.compiled.js
+
+# Directorios de archivos temporales
+tmp/
+temp/
+
+# Archivos de VSCode
+.vscode/
