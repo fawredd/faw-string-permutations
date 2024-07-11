@@ -1,4 +1,4 @@
-Given a string, make a function that returns the number of posible combinations. 
+Given a string, make a function that returns the number of posible character combinations. 
 INPUT: "CCB"
 OUTPUT: 8
 
